@@ -46,7 +46,7 @@ public class UserController {
     @PostMapping("/login")
     public ResponseEntity<?> login(@Valid @RequestBody LoginDto dto){
         System.out.println("From frontend "+dto.getLogin()+" "+dto.getPassword());
-        return ResponseEntity.ok(new APIResponse(HttpStatus.OK, "Welcome Back", userService.login(dto)));
+        return ResponseEntity.ok(userService.login(dto));
     }
     @GetMapping("/profile")
     public ResponseEntity<?> profile(){
