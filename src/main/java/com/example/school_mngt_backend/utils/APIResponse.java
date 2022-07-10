@@ -1,4 +1,4 @@
-package com.example.school_mngt_backend.dtos;
+package com.example.school_mngt_backend.utils;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import org.springframework.format.annotation.DateTimeFormat;
@@ -6,7 +6,7 @@ import org.springframework.http.HttpStatus;
 
 import java.time.LocalDateTime;
 
-public class ResponseDto {
+public class APIResponse {
     private HttpStatus status;
     private String message;
     @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
@@ -14,10 +14,10 @@ public class ResponseDto {
     private LocalDateTime timestamp;
     private Object data;
 
-    public ResponseDto() {
+    public APIResponse() {
     }
 
-    public ResponseDto(HttpStatus status, String message, Object data) {
+    public APIResponse(HttpStatus status, String message, Object data) {
         this.timestamp = LocalDateTime.now();
         this.data = data;
         this.message = message;

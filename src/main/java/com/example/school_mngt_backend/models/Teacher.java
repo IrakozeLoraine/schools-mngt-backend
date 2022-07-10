@@ -1,7 +1,6 @@
 package com.example.school_mngt_backend.models;
 
-import com.example.school_mngt_backend.dtos.TeacherDto;
-import com.example.school_mngt_backend.enums.Degree;
+import com.example.school_mngt_backend.enums.EDegree;
 
 import javax.persistence.*;
 import java.util.List;
@@ -15,7 +14,7 @@ public class Teacher {
     String names;
 
     @Enumerated
-    Degree degree;
+    EDegree EDegree;
 
     @ManyToMany
     List <School> schools;
@@ -31,9 +30,9 @@ public class Teacher {
         this.id = id;
     }
 
-    public Teacher(String names, Degree degree, List<School> schools) {
+    public Teacher(String names, EDegree EDegree, List<School> schools) {
         this.names = names;
-        this.degree = degree;
+        this.EDegree = EDegree;
         this.schools = schools;
     }
 
@@ -45,12 +44,12 @@ public class Teacher {
         this.names = names;
     }
 
-    public Degree getDegree() {
-        return degree;
+    public EDegree getDegree() {
+        return EDegree;
     }
 
-    public void setDegree(Degree degree) {
-        this.degree = degree;
+    public void setDegree(EDegree EDegree) {
+        this.EDegree = EDegree;
     }
 
     public List<School> getSchools() {

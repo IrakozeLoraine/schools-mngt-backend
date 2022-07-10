@@ -1,10 +1,9 @@
 package com.example.school_mngt_backend.controllers;
 
-import com.example.school_mngt_backend.dtos.ResponseDto;
+import com.example.school_mngt_backend.utils.APIResponse;
 import com.example.school_mngt_backend.dtos.SchoolDto;
 import com.example.school_mngt_backend.models.School;
 import com.example.school_mngt_backend.services.SchoolService;
-import com.example.school_mngt_backend.services.impl.SchoolServiceImpl;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -23,28 +22,28 @@ public class SchoolController {
     }
 
     @GetMapping()
-    public ResponseEntity<ResponseDto> getAllSchools() throws Exception {
+    public ResponseEntity<APIResponse> getAllSchools() throws Exception {
         List<School> schools = schoolService.getAll();
-        return ResponseEntity.ok().body(new ResponseDto(HttpStatus.OK, "", schools));
+        return ResponseEntity.ok().body(new APIResponse(HttpStatus.OK, "", schools));
     }
     @PostMapping()
-    public ResponseEntity<ResponseDto> createSchool(@Valid @RequestBody SchoolDto schoolDto) throws Exception {
+    public ResponseEntity<APIResponse> createSchool(@Valid @RequestBody SchoolDto schoolDto) throws Exception {
         School school = schoolService.save(schoolDto);
-        return ResponseEntity.ok().body(new ResponseDto(HttpStatus.OK, "SUCCESSFULLY RECORDED", school));
+        return ResponseEntity.ok().body(new APIResponse(HttpStatus.OK, "SUCCESSFULLY RECORDED", school));
     }
     @GetMapping("/{id}")
-    public ResponseEntity<ResponseDto> getSchoolById(@PathVariable Long id) throws Exception {
+    public ResponseEntity<APIResponse> getSchoolById(@PathVariable Long id) throws Exception {
         Optional<School> school = schoolService.getById(id);
-        return ResponseEntity.ok().body(new ResponseDto(HttpStatus.OK, "SUCCESSFULLY RECORDED", school));
+        return ResponseEntity.ok().body(new APIResponse(HttpStatus.OK, "SUCCESSFULLY RECORDED", school));
     }
     @PutMapping()
-    public ResponseEntity<ResponseDto> updateSchool(@Valid @RequestBody SchoolDto schoolDto) throws Exception {
+    public ResponseEntity<APIResponse> updateSchool(@Valid @RequestBody SchoolDto schoolDto) throws Exception {
         School school = schoolService.save(schoolDto);
-        return ResponseEntity.ok().body(new ResponseDto(HttpStatus.OK, "SUCCESSFULLY RECORDED", school));
+        return ResponseEntity.ok().body(new APIResponse(HttpStatus.OK, "SUCCESSFULLY RECORDED", school));
     }
     @DeleteMapping("/{id}")
-    public ResponseEntity<ResponseDto> deleteSchoolById(@PathVariable Long id) throws Exception {
+    public ResponseEntity<APIResponse> deleteSchoolById(@PathVariable Long id) throws Exception {
         schoolService.deleteById(id);
-        return ResponseEntity.ok().body(new ResponseDto(HttpStatus.OK, "SUCCESSFULLY RECORDED", null));
+        return ResponseEntity.ok().body(new APIResponse(HttpStatus.OK, "SUCCESSFULLY RECORDED", null));
     }
 }

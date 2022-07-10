@@ -1,6 +1,6 @@
 package com.example.school_mngt_backend.dtos;
 
-import com.example.school_mngt_backend.enums.Degree;
+import com.example.school_mngt_backend.enums.EDegree;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 import javax.persistence.Enumerated;
@@ -9,7 +9,7 @@ public class TeacherDto {
     private String names;
 
     @Enumerated
-    private Degree degree;
+    private EDegree EDegree;
 
     @JsonProperty("school_id")
     private Long schoolId;
@@ -22,12 +22,12 @@ public class TeacherDto {
         this.names = names;
     }
 
-    public Degree getDegree() {
-        return degree;
+    public EDegree getDegree() {
+        return EDegree;
     }
 
-    public void setDegree(Degree degree) {
-        this.degree = degree;
+    public void setDegree(EDegree EDegree) {
+        this.EDegree = EDegree;
     }
 
     public Long getSchoolId() {
