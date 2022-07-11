@@ -67,9 +67,9 @@ public class SwaggerConfig extends WebMvcConfigurationSupport {
                         return "/";
                     }
                 }).select().apis(RequestHandlerSelectors.basePackage("com.example.school_mngt_backend.controllers"))
-                .paths(PathSelectors.any()).build().apiInfo(apiInfo());
-//                .securitySchemes(Arrays.asList(apiKey()))
-//                .securityContexts(Collections.singletonList(securityContext())).consumes(consumes).produces(produces);
+                .paths(PathSelectors.any()).build().apiInfo(apiInfo())
+                .securitySchemes(Arrays.asList(apiKey()))
+                .securityContexts(Collections.singletonList(securityContext())).consumes(consumes).produces(produces);
     }
 
     private ApiKey apiKey() {
